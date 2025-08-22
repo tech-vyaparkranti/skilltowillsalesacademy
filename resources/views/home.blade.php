@@ -457,7 +457,7 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     position: relative;
     border-radius: 20px;
-    overflow: hidden;
+    height: 370px;
 }
 
 /* Video Placeholder */
@@ -472,7 +472,7 @@
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: auto;
+    height: inherit;
     border-radius: 20px;
 }
 
