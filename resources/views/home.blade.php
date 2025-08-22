@@ -486,7 +486,8 @@
 .webinar-details {
     background: #2a2f5a;
     border-radius: 20px;
-    padding: 2rem;
+    padding-left:10px;
+    padding-right:10px;
 }
 
 /* Webinar Title */
