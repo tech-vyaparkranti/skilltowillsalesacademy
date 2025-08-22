@@ -1075,7 +1075,7 @@
     <section class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <div class="workshop-badge">40-Min LIVE Webinar - Just ₹49!</div>
+                <div class="workshop-badge">60-Min LIVE Webinar - Just ₹49!</div>
                 <h1 class="hero-title">🚀 Confused About Your Career After 12th or Graduation?</h1>
                 <h2 class="hero-subtitle">Start Earning in India's BOOMING FMCG Industry</h2>
                 <h3 class="hero-title">for Just ₹49! 🚀</h3>
