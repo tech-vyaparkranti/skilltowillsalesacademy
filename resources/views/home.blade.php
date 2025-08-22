@@ -399,7 +399,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-image: url('/images/banner.jpeg');;
             background-size: cover;
             background-position: center;
         }
@@ -414,7 +414,7 @@
             background: rgba(0, 0, 0, 0.6);
         }
 
-        .play-button {
+        /* .play-button {
             width: 80px;
             height: 80px;
             background: linear-gradient(135deg, #ffa500, #ff6b6b);
@@ -427,9 +427,9 @@
             box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
             z-index: 2;
             position: relative;
-        }
+        } */
 
-        .play-button:hover {
+        /* .play-button:hover {
             transform: scale(1.1);
         }
 
@@ -438,9 +438,9 @@
             color: white;
             font-size: 2rem;
             margin-left: 5px;
-        }
+        } */
 
-        .video-title {
+        /* .video-title {
             position: absolute;
             bottom: 15px;
             left: 15px;
@@ -451,7 +451,7 @@
             font-weight: 600;
             font-size: 0.9rem;
             z-index: 2;
-        }
+        } */
 
         .webinar-details {
             background: #2a2f5a;
