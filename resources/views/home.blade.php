@@ -411,7 +411,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
+            /* background: rgba(0, 0, 0, 0.6); */
         }
 
         /* .play-button {
@@ -1090,8 +1090,8 @@
             <div class="video-details-grid">
                 <div class="video-container">
                     <div class="video-placeholder">
-                        <div class="play-button" onclick="playVideo()"></div>
-                        <div class="video-title">🎯 The "NEEV" FMCG Career Foundation Webinar by Sandeep Ray</div>
+                        {{-- <div class="play-button" onclick="playVideo()"></div>
+                        <div class="video-title">🎯 The "NEEV" FMCG Career Foundation Webinar by Sandeep Ray</div> --}}
                     </div>
                 </div>
                 
