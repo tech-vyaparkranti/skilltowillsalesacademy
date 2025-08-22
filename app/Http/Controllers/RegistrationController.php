@@ -34,7 +34,7 @@ class RegistrationController extends Controller
 
         $order = $api->order->create([
             'receipt'         => 'order_'.$registration->id,
-            'amount'          => 100, // ₹1.00 in paise (100 paise = ₹1)
+            'amount'          => 4900, // ₹1.00 in paise (100 paise = ₹1)
             'currency'        => 'INR',
             'payment_capture' => 1,
         ]);
