@@ -1442,7 +1442,7 @@
                     <span>⏰ Offer Ends In:</span>
                     <div class="timer-display" id="countdown">10:00</div>
                 </div>
-                <div style="font-size: 0.9rem; color: #ffa500; font-weight: 600;" id="bannerTimer">Only <span id="bannerSeats">18</span> seats left!</div>
+                <div style="font-size: 0.9rem; color: #ffa500; font-weight: 600;" id="bannerTimer">Only <span id="bannerSeats">Limited</span> seats !</div>
             </div>
             <button class="banner-cta" onclick="openModal('registrationModal')">REGISTER FOR JUST ₹49</button>
         </div>
@@ -1511,32 +1511,37 @@
         });
 
         // Timer functionality
-        let minutes = 9;
-        let seconds = 59;
-        
-        function updateTimer() {
-            const timerDisplay = document.getElementById('countdown');
-            const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            timerDisplay.textContent = timeString;
-            
-            if (seconds === 0) {
-                if (minutes === 0) {
-                    // Reset timer when it reaches 00:00
-                    minutes = 9;
-                    seconds = 59;
-                } else {
-                    minutes--;
-                    seconds = 59;
-                }
-            } else {
-                seconds--;
-            }
-        }
-        
-        // Update timer every second
-        setInterval(updateTimer, 1000);
-        updateTimer(); // Initial call
+      const targetDateIST = new Date("2025-08-30T23:59:59+05:30").getTime();
 
+function updateTimer() {
+    const now = new Date();
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const nowIST = utc + (5.5 * 60 * 60 * 1000);
+
+    let distance = targetDateIST - nowIST;
+    const el = document.getElementById("countdown");
+
+    if (distance <= 0) {
+        el.textContent = "Registration Closed!";
+        clearInterval(timer);
+        return;
+    }
+
+    const dayMs = 1000 * 60 * 60 * 24;
+    const hrMs = 1000 * 60 * 60;
+    const minMs = 1000 * 60;
+
+    // Countdown in Days HH:MM:SS
+    const days = Math.floor(distance / dayMs);
+    const hours = Math.floor((distance % dayMs) / hrMs);
+    const minutes = Math.floor((distance % hrMs) / minMs);
+    const seconds = Math.floor((distance % minMs) / 1000);
+
+    el.textContent = `${days} Days left`;
+}
+
+const timer = setInterval(updateTimer, 1000);
+updateTimer();
         // Seats left functionality
         let seatsLeft = 18;
         
