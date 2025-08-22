@@ -457,23 +457,49 @@
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     position: relative;
     border-radius: 20px;
-    height: 370px;
+    height: 370px; /* default height for large screens */
+    width: 100%;
 }
 
 /* Video Placeholder */
 .video-placeholder {
-    aspect-ratio: 16/9;
+    aspect-ratio: 16 / 9;
     background: linear-gradient(135deg, #2a2f5a, #1a1f3a);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background-image: url('/images/banner.jpeg');
+    background-image: url('/images/img2.jpeg');
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: inherit;
+    height: 100%;
     border-radius: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) { /* large screens */
+    .video-container {
+        height: 320px;
+    }
+}
+
+@media (max-width: 992px) { /* medium screens / tablets */
+    .video-container {
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) { /* small tablets / large phones */
+    .video-container {
+        height: 240px;
+    }
+}
+
+@media (max-width: 576px) { /* mobile phones */
+    .video-container {
+        height: 200px;
+    }
 }
 
 /* Webinar Details Box */
