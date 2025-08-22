@@ -1282,7 +1282,7 @@
                 </div>
             </div>
             
-            <div class="faq-item">
+            {{-- <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Will I get placement assistance after the webinar?</span>
                     <span class="faq-icon">▼</span>
@@ -1290,7 +1290,7 @@
                 <div class="faq-answer">
                     <p>Absolutely! Our team has strong connections with leading FMCG companies. We provide dedicated placement assistance, resume building support, and interview preparation to help you land your dream job in the FMCG sector.</p>
                 </div>
-            </div>
+            </div> --}}
             
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
@@ -1298,7 +1298,7 @@
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>The webinar will be conducted in both Hindi and English (Hinglish) to ensure maximum understanding. You can ask questions in either language during the live Q&A session.</p>
+                    <p>The webinar will be conducted in Hindi to ensure maximum understanding.</p>
                 </div>
             </div>
             
@@ -1308,7 +1308,7 @@
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sandeep Ray is a renowned FMCG Sales Professional and Mentor with over 15 years of industry experience. He's the founder of Skill To Will Sales Academy and has helped thousands of students successfully transition into lucrative FMCG careers.</p>
+                    <p>Sandeep Ray is a FMCG Sales Trainer and trained thousand of sales professional across top FMCG Companies in India and abroad. His YouTube Channel - Skill To Will is the No.1 channel for the FMCG Industry. His Book - FMCG Sales Toolkit is an Amazon Best Seller. He helps people start and become successful in sales career.</p>
                 </div>
             </div>
             
@@ -1322,7 +1322,7 @@
                 </div>
             </div>
 
-            <div class="faq-item">
+            {{-- <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>What if I miss the live session?</span>
                     <span class="faq-icon">▼</span>
@@ -1330,7 +1330,7 @@
                 <div class="faq-answer">
                     <p>While we highly recommend attending live for the interactive Q&A session, registered participants will receive a recording link. However, the live experience with real-time doubt clearing is much more valuable.</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
