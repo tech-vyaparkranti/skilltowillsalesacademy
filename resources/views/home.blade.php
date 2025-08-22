@@ -385,11 +385,9 @@
         }
 
         .video-container {
-            background: #1a1f3a;
-            border-radius: 20px;
-            overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             position: relative;
+            height:380px;
         }
 
         .video-placeholder {
@@ -402,6 +400,9 @@
             background-image: url('/images/banner.jpeg');;
             background-size: cover;
             background-position: center;
+            height:inherit;
+              border-radius: 20px;
+          
         }
 
         .video-placeholder::before {
