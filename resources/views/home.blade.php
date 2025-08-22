@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>NEEV FMCG Career Foundation Webinar - Just ₹49!</title>
     <style>
         * {
@@ -889,6 +891,10 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
+
+         .message { padding: 10px 15px; margin-bottom: 15px; display: none; border-radius: 5px; }
+        .message.success { background-color: #d4edda; color: #155724; }
+        .message.error { background-color: #f8d7da; color: #721c24; }
     </style>
 </head>
 <body>
@@ -903,7 +909,9 @@
             <h2 class="modal-title">🎯 Register for NEEV Webinar</h2>
             <p class="modal-subtitle">Secure your seat for just ₹49! Join thousands of students who are building successful FMCG careers.</p>
             
+            <div id="message" class="message"></div>
             <form id="registrationForm">
+    @csrf
                 <div class="form-group">
                     <label class="form-label">Full Name *</label>
                     <input type="text" class="form-input" name="name" placeholder="Enter your full name" required>
@@ -923,6 +931,85 @@
             </form>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+function showMessage(type, text) {
+    const msgDiv = $('#message');
+    msgDiv.removeClass('success error').addClass(type).text(text).fadeIn();
+    setTimeout(() => msgDiv.fadeOut(), 5000);
+}
+
+$('#registrationForm').on('submit', function(e){
+    e.preventDefault();
+    let form = $(this);
+
+    $.ajax({
+        url: "{{ route('register.store') }}",
+        method: "POST",
+        data: form.serialize(),
+        success: function(response){
+            if(response.status){
+                var options = {
+                    "key": "{{ config('services.razorpay.key') }}",
+                    "amount": response.amount,
+                    "currency": "INR",
+                    "name": "Skill to Will Sales Academy",
+                    "description": "Registration Fee",
+                    "order_id": response.order_id,
+                    "handler": function (paymentResponse){
+                        // 🔥 call verify API directly via AJAX
+                        $.post("{{ route('razorpay.verify') }}", {
+                            _token: "{{ csrf_token() }}",
+                            razorpay_payment_id: paymentResponse.razorpay_payment_id,
+                            razorpay_order_id: paymentResponse.razorpay_order_id,
+                            razorpay_signature: paymentResponse.razorpay_signature
+                        }, function(verifyResponse){
+                            console.log("VERIFY RESPONSE", verifyResponse);
+                            if(verifyResponse.status){
+                                showMessage('success', verifyResponse.message);
+                                form.trigger('reset');
+                            } else {
+                                showMessage('error', verifyResponse.message);
+                            }
+                        });
+                    },
+                    "prefill": {
+                        "name": response.name,
+                        "email": response.email,
+                        "contact": response.phone
+                    },
+                    "theme": { "color": "#ff6b35" }
+                };
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
+            } else {
+                showMessage('error', 'Something went wrong. Please try again.');
+            }
+        },
+        error: function(xhr){
+            if(xhr.responseJSON && xhr.responseJSON.errors){
+                let errors = xhr.responseJSON.errors;
+                let msg = '';
+                for(let key in errors){
+                    msg += errors[key] + "\n";
+                }
+                showMessage('error', msg);
+            } else {
+                showMessage('error', 'An unexpected error occurred.');
+            }
+        }
+    });
+});
+</script>
 
     <!-- Privacy Policy Modal -->
     <div class="modal-overlay" id="privacyModal">
@@ -1408,7 +1495,7 @@
                         closeModal('registrationModal');
                         
                         // Show additional confirmation
-                        alert('🎉 Welcome to NEEV FMCG Career Foundation!\n\n✅ Registration Confirmed\n📧 Email: Joining link sent\n📱 WhatsApp: Updates will follow\n🎯 Webinar: Jan 15, 2025 at 7:00 PM\n\nSee you in the webinar!');
+                        // alert('🎉 Welcome to NEEV FMCG Career Foundation!\n\n✅ Registration Confirmed\n📧 Email: Joining link sent\n📱 WhatsApp: Updates will follow\n🎯 Webinar: Jan 15, 2025 at 7:00 PM\n\nSee you in the webinar!');
                     }, 2000);
                 }, 3000);
             }, 1000);
@@ -1485,9 +1572,9 @@
         }
 
         // Video play functionality
-        function playVideo() {
-            alert('🎬 NEEV FMCG Career Foundation Webinar Preview\n\n🎯 Get a sneak peek of what you\'ll learn!\n📱 WhatsApp: +91-XXXXXXXXXX for instant support\n🎫 Only ' + seatsLeft + ' seats remaining!\n\nRedirecting to video player...');
-        }
+        // function playVideo() {
+        //     alert('🎬 NEEV FMCG Career Foundation Webinar Preview\n\n🎯 Get a sneak peek of what you\'ll learn!\n📱 WhatsApp: +91-XXXXXXXXXX for instant support\n🎫 Only ' + seatsLeft + ' seats remaining!\n\nRedirecting to video player...');
+        // }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
