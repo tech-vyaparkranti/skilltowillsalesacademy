@@ -1254,6 +1254,84 @@ $('#registrationForm').on('submit', function(e){
             </div>
         </div>
     </div>
+    <!-- Terms & Conditions Modal -->
+<div class="modal-overlay" id="termsModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+        <h2 class="modal-title">📜 Terms & Conditions</h2>
+        <div class="privacy-content">
+
+            <h3>Effective Date: August 21, 2025</h3>
+            <p>Welcome to <strong>Skill to Will</strong>, operated under <strong>SR Capability Solutions Pvt. Ltd.</strong> By accessing or using our website, courses, webinars, mentoring sessions, or any other services, you agree to be bound by the following Terms & Conditions. Please read them carefully before using our services.</p>
+
+          
+            <h3>1. Acceptance of Terms</h3>
+            <p>By registering for, accessing, or using our courses, training programs, consulting, or mentoring services, you acknowledge that you have read, understood, and agreed to these Terms & Conditions, along with our Privacy Policy and Refund Policy.</p>
+
+          
+            <h3>2. Eligibility</h3>
+            <ul>
+                <li>You must be at least <strong>18 years of age</strong> to enroll in our programs.</li>
+                <li>If you are under 18, you may participate only with parental or guardian consent.</li>
+                <li>By using our services, you confirm that the information provided during registration is accurate and complete.</li>
+            </ul>
+
+           
+            <h3>3. Use of Services</h3>
+            <ul>
+                <li>Access to digital content, training sessions, webinars, and mentoring is provided for personal and professional learning purposes only.</li>
+                <li>You agree not to copy, distribute, resell, or misuse the content without prior written permission from Skill to Will.</li>
+                <li>Any attempt to breach security, share unauthorized access, or misuse resources will result in suspension or termination of your account.</li>
+            </ul>
+
+          
+            <h3>4. Payments & Fees</h3>
+            <ul>
+                <li>All payments must be made in full before accessing the services.</li>
+                <li>Prices are subject to change without prior notice.</li>
+                <li>Once payment is made, it will be governed by our Refund Policy (all sales are final except under specified exceptions).</li>
+            </ul>
+
+           
+            <h3>5. Intellectual Property</h3>
+            <ul>
+                <li>All course content, materials, branding, logos, and digital assets belong to <strong>Skill to Will / SR Capability Solutions Pvt. Ltd.</strong></li>
+                <li>You are granted a limited, non-transferable license to access the content for personal learning.</li>
+                <li>Unauthorized reproduction, sharing, or commercial use is strictly prohibited.</li>
+            </ul>
+
+         
+            <h3>6. Limitation of Liability</h3>
+            <ul>
+                <li>While we strive to provide accurate, valuable, and practical learning, Skill to Will does not guarantee specific career outcomes, job offers, or salary levels.</li>
+                <li>We are not responsible for technical issues, third-party platform errors, or delays beyond our control.</li>
+            </ul>
+
+          
+            <h3>7. Termination of Services</h3>
+            <p>Skill to Will reserves the right to suspend or terminate your access without refund if:</p>
+            <ul>
+                <li>You breach these Terms & Conditions.</li>
+                <li>Misuse of platform, abusive behavior, or fraudulent activity is identified.</li>
+            </ul>
+
+           
+            <h3>8. Governing Law</h3>
+            <p>These Terms & Conditions are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Gurugram, Haryana.</p>
+
+           
+            <h3>9. Contact Us</h3>
+            <ul>
+                <li><strong>Email:</strong> sandeep@skilltowill.com</li>
+                <li><strong>Address:</strong> A4/901, Tulip White Apartment, Badshahpur, Sector-69, Gurugram, Haryana 122101, India</li>
+                <li><strong>Phone:</strong> +91 9818901783</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
 
     <!-- Policy Buttons -->
     <div class="policy-buttons">
@@ -1263,6 +1341,9 @@ $('#registrationForm').on('submit', function(e){
         <button class="privacy-policy-btn" onclick="openModal('refundModal')" style="bottom: 70px;">
             💰 Refund Policy
         </button>
+      <button class="privacy-policy-btn" onclick="openModal('termsModal')" style="bottom: 20px;">
+    📜 Terms & Conditions
+</button>
     </div>
 
     <!-- Section 1: Hero Content -->
@@ -1541,7 +1622,7 @@ $('#registrationForm').on('submit', function(e){
                     <span>⏰ Offer Ends In:</span>
                     <div class="timer-display" id="countdown">10:00</div>
                 </div>
-                <div style="font-size: 0.9rem; color: #ffa500; font-weight: 600;" id="bannerTimer">Only <span id="bannerSeats">Limited</span> seats !</div>
+                <div style="font-size: 0.9rem; color: #ffa500; font-weight: 600;" >Only <span id="bannerSeats">Limited</span> seats !</div>
             </div>
             <button class="banner-cta" onclick="openModal('registrationModal')">REGISTER FOR JUST ₹49</button>
         </div>
